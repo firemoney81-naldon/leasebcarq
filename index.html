@@ -1,23 +1,394 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+
+  <!-- JSON-LD Structured Data for Service and Product -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "장기렌트",
+    "name": "전기차 장기렌트 전문 비교 센터",
+    "description": "2026년 최신 전기차 장기렌트 가격과 모델별 비교 분석 정보를 제공합니다. 초기 비용 절감, 세금 혜택 등 장기렌트의 장점을 알아보고, 고객 맞춤형 견적을 받을 수 있습니다.",
+    "url": "https://www.yourdomain.com/ev-rental",
+    "image": "https://images.pexels.com/photos/1036070/pexels-photo-1036070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "1250"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "장기렌트 상품 목록",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "현대 아이오닉 5 장기렌트"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "기아 EV6 장기렌트"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "테슬라 모델 Y 장기렌트"
+          }
+        }
+      ]
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "전기차렌트연구소"
+    }
+  }
+  </script>
+
+  <style>
+    /* Global Styles and Typography */
+    body { font-family: 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', sans-serif; margin: 0; padding: 0; line-height: 1.8; color: #333; background-color: #f7f9fc; font-size: 16px; }
+    header { background: #004d40; color: #fff; padding: 40px 20px; text-align: center; }
+    header h1 { font-size: 2.5rem; margin-bottom: 10px; font-weight: bold; }
+    header p { font-size: 1.2rem; margin-bottom: 20px; color: #e0f2f1; }
+    .cta-btn { background: #ffba08; color: #222; padding: 15px 30px; border-radius: 8px; font-weight: bold; text-decoration: none; display: inline-block; transition: background-color 0.3s ease; }
+    .cta-btn:hover { background-color: #ffd14a; }
+
+    /* Layout Structure */
+    .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+    section { padding: 30px 0; border-bottom: 1px solid #e0e0e0; margin-bottom: 20px; }
+    section h2 { font-size: 2rem; color: #004d40; border-bottom: 3px solid #004d40; padding-bottom: 10px; margin-bottom: 25px; font-weight: bold; }
+    section h3 { font-size: 1.5rem; color: #00695c; margin-top: 20px; margin-bottom: 15px; }
+
+    /* Article Content Styling */
+    .content-article p { margin-bottom: 20px; text-align: justify; }
+    .content-article ul { margin-bottom: 20px; padding-left: 20px; }
+    .content-article li { margin-bottom: 8px; }
+    .highlight { background-color: #e8f5e9; padding: 15px; border-left: 5px solid #4caf50; margin: 20px 0; line-height: 1.8; }
+
+    /* Tables */
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 15px; }
+    th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+    th { background-color: #f0f4f7; color: #333; font-weight: bold; }
+
+    /* Forms and Inputs */
+    .quote-form-section { background-color: #e0f2f1; padding: 30px; border-radius: 10px; margin-top: 30px; }
+    .quote-form-section h3 { color: #004d40; text-align: center; margin-bottom: 20px; }
+    .quote-form-section label { display: block; margin-bottom: 15px; font-weight: bold; color: #004d40; }
+    .quote-form-section input[type="text"], .quote-form-section input[type="number"], .quote-form-section select { width: calc(100% - 22px); padding: 12px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+    .quote-form-section button { background: #00695c; color: #fff; border: none; padding: 15px; font-size: 1rem; border-radius: 5px; cursor: pointer; display: block; width: 100%; margin-top: 20px; transition: background-color 0.3s ease; }
+    .quote-form-section button:hover { background-color: #004d40; }
+
+    /* Keyword Section */
+    .keyword-section { margin-top: 20px; background-color: #fafafa; padding: 20px; border-radius: 8px; }
+    .keyword-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .keyword-item { background-color: #fff; border: 1px solid #ddd; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; color: #555; }
+
+    /* Image Styling */
+    .image-container { text-align: center; margin-top: 20px; margin-bottom: 30px; }
+    .image-container img { max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+
+    /* Footer */
+    footer { background: #333; color: #aaa; padding: 30px 20px; text-align: center; font-size: 0.9rem; }
+    footer a { color: #fff; text-decoration: none; margin: 0 10px; }
+    footer p { margin-bottom: 10px; }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      header p { font-size: 1rem; }
+      section h2 { font-size: 1.8rem; }
+      section h3 { font-size: 1.3rem; }
+      .container { padding: 10px; }
+      .quote-form-section input, .quote-form-section select { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>2026년 전기차 장기렌트 가격 비교 및 전문 업체 추천</h1>
+    <p>초기 비용 부담 없이, 세금 혜택으로 스마트하게 전기차를 소유하는 가장 현명한 방법</p>
+    <a href="#quote-request" class="cta-btn">실시간 무료 견적 받기</a>
+  </header>
+
+  <div class="container">
+    <section id="introduction">
+      <h2>전기차 장기렌트: 2026년 자동차 시장의 새로운 표준</h2>
+      <div class="content-article">
+        <p>전 세계적으로 친환경차 보급이 가속화되면서, 국내 자동차 시장에서도 전기차의 인기가 치솟고 있습니다. 특히 2026년에는 배터리 기술의 발전과 충전 인프라 확충으로 전기차의 실용성이 극대화될 전망입니다. 하지만 전기차의 높은 초기 구매 비용은 여전히 많은 소비자들에게 부담으로 작용합니다. 이러한 문제를 해결할 수 있는 가장 효과적인 대안이 바로 ‘장기렌트’입니다. 장기렌트는 초기 비용 없이 매월 일정 금액의 렌탈료만 지불하며 차량을 이용하는 방식으로, 복잡한 세금, 보험, 정비 문제를 모두 렌트 업체에 맡길 수 있다는 큰 장점을 가지고 있습니다.</p>
+        <p>본 페이지에서는 2026년 최신 전기차 모델을 기준으로 장기렌트의 장점과 단점, 그리고 합리적인 가격으로 이용하는 방법을 심층적으로 분석합니다. 네이버, 구글 등 주요 포털 사이트에서 ‘전기차 장기렌트’를 검색하는 분들이 가장 궁금해하는 핵심 정보를 총망라하여, 현명한 결정을 내리실 수 있도록 돕습니다.</p>
+      </div>
+    </section>
+
+    <section id="benefits-comparison">
+      <h2>전기차 장기렌트 vs. 구매 vs. 리스 비교 분석 (장점과 단점)</h2>
+      <div class="content-article">
+        <p>전기차를 이용하는 방법은 크게 3가지입니다. 장기렌트, 금융 리스, 그리고 현금 또는 할부 구매입니다. 각각의 방식은 장점과 단점이 명확하며, 개인의 상황(예: 사업자 여부, 주행 거리, 자금 상황)에 따라 최적의 선택이 달라집니다. 특히 전기차는 일반 내연기관차와 달리 정부 및 지자체 보조금, 취득세 감면 등 다양한 혜택이 적용되므로, 이를 정확히 파악하는 것이 중요합니다.</p>
+
+        <h3>1. 전기차 장기렌트의 압도적인 장점</h3>
+        <ul>
+          <li><strong>초기 비용 부담 제로:</strong> 장기렌트의 가장 큰 장점은 초기 보증금이나 선납금 없이 차량을 이용할 수 있다는 점입니다. 특히 전기차는 차량 가격대가 높아 초기 비용 부담이 내연기관차보다 훨씬 크기 때문에, 장기렌트의 이점이 더욱 두드러집니다.</li>
+          <li><strong>세금 절감 효과:</strong> 자동차세, 취득세, 등록세 등 각종 세금이 모두 렌탈료에 포함되어 있어 별도로 납부할 필요가 없습니다. 또한, 사업자의 경우 렌탈료 전체를 비용 처리하여 세금 감면 혜택을 받을 수 있습니다.</li>
+          <li><strong>보험료 할증 걱정 없음:</strong> 차량 명의가 렌트 업체로 되어 있어 개인의 보험 경력이 단절되지 않습니다. 사고가 발생해도 개인 보험료가 할증될 염려가 없습니다. 특히 운전 경력이 짧거나 사고 이력이 많은 분들에게 큰 장점으로 작용합니다.</li>
+          <li><strong>LPG 차량 이용 가능성:</strong> 전기차 장기렌트는 아니지만, 전기차 외에 LPG 차량을 일반인도 이용할 수 있는 유일한 방법입니다.</li>
+          <li><strong>편의성 및 관리 용이성:</strong> 정기적인 점검 및 소모품 교체 서비스가 렌탈료에 포함되어 있어 차량 관리가 매우 편리합니다. 갑작스러운 고장에도 신속하게 대처할 수 있습니다.</li>
+        </ul>
+
+        <h3>2. 장기렌트의 단점과 리스, 구매와의 차이점</h3>
+        <ul>
+          <li><strong>만기 시 소유권 부재:</strong> 장기렌트는 차량을 '빌려 쓰는' 개념이므로 만기 시 차량을 반납해야 합니다. 물론 인수가 가능하지만, 이 경우 인수가격이 발생합니다.</li>
+          <li><strong>번호판 제한:</strong> 렌트 차량은 '하, 허, 호' 번호판을 사용합니다. 최근에는 '하, 허, 호' 번호판에 대한 인식이 개선되었지만, 일부 소비자에게는 단점으로 작용할 수 있습니다.</li>
+          <li><strong>연간 주행 거리 제한:</strong> 계약 시 연간 주행 거리를 설정해야 하며, 초과 시 추가 비용이 발생합니다. 평소 운행 거리가 많은 분들은 계약 시 주행 거리를 높게 설정해야 합니다.</li>
+        </ul>
+
+        <h3>3. 장기렌트 vs. 리스 vs. 구매 비교표</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>구분</th>
+              <th>장기렌트</th>
+              <th>금융 리스</th>
+              <th>현금/할부 구매</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>차량 소유권</td>
+              <td>렌트사 (계약 기간 종료 후 인수 가능)</td>
+              <td>리스사 (계약 기간 종료 후 인수/반납/재리스)</td>
+              <td>개인 소유</td>
+            </tr>
+            <tr>
+              <td>초기 비용</td>
+              <td>0원 (보증금/선납금 선택 가능)</td>
+              <td>보증금 또는 선수금 필요</td>
+              <td>차량 가격 전액 또는 할부금</td>
+            </tr>
+            <tr>
+              <td>세금 및 보험료</td>
+              <td>렌탈료에 포함 (운전자 보험 별도)</td>
+              <td>개인 부담</td>
+              <td>개인 부담</td>
+            </tr>
+            <tr>
+              <td>번호판</td>
+              <td>하, 허, 호</td>
+              <td>일반 번호판</td>
+              <td>일반 번호판</td>
+            </tr>
+            <tr>
+              <td>사고 처리</td>
+              <td>렌트사 보험으로 처리, 개인 할증 없음</td>
+              <td>개인 보험 처리, 보험료 할증 가능성 있음</td>
+              <td>개인 보험 처리, 보험료 할증 가능성 있음</td>
+            </tr>
+            <tr>
+              <td>주행 거리 제한</td>
+              <td>있음 (계약 시 설정)</td>
+              <td>있음 (계약 시 설정)</td>
+              <td>없음</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="pricing-analysis">
+      <h2>전기차 장기렌트 가격 분석: 합리적인 금액을 찾는 방법</h2>
+      <div class="content-article">
+        <p>전기차 장기렌트 견적은 단순히 차량 가격으로만 결정되지 않습니다. 다양한 요인들이 복합적으로 작용하여 최종 월 렌탈료를 결정하며, 이 요인들을 정확히 이해해야 '저렴한곳'을 찾고 '싼곳'을 분별할 수 있습니다. 2026년 전기차 시장에서는 보조금 정책의 변화와 신차 출시 주기가 빨라지면서 가격 변동성이 더욱 커지고 있습니다.</p>
+
+        <h3>1. 렌탈료 결정 주요 요인 분석</h3>
+        <ul>
+          <li><strong>계약 기간 (장기):</strong> 렌탈 기간이 길수록 월 렌탈료가 낮아집니다. 일반적으로 36개월, 48개월, 60개월 계약이 주를 이루며, 60개월 계약이 가장 저렴한 월 납입 금액을 제공합니다.</li>
+          <li><strong>차량 모델 및 트림:</strong> 선택하는 전기차 모델(예: 아이오닉 5, EV6, 테슬라 모델 Y)과 옵션(트림)에 따라 가격 차이가 큽니다. 출고가가 높은 모델일수록 렌탈료도 비싸집니다.</li>
+          <li><strong>선납금 및 보증금 유무:</strong> 선납금(미리 납부하는 금액)이나 보증금(나중에 돌려받는 금액)을 많이 걸수록 월 렌탈료는 낮아집니다. 초기 비용이 부담되지 않는다면 보증금을 활용하여 렌탈료를 낮추는 것이 현명한 방법입니다.</li>
+          <li><strong>잔존가치:</strong> 계약 만기 시 차량의 예상 가치를 의미합니다. 잔존가치가 높게 책정될수록 렌탈료가 낮아집니다. 전기차는 배터리 기술 발전 속도가 빨라 잔존가치 책정이 내연기관차보다 까다로울 수 있습니다.</li>
+          <li><strong>운행 거리:</strong> 연간 주행 거리에 따라 렌탈료가 달라집니다. 주행 거리가 1만km, 2만km, 3만km 등으로 나뉘며, 주행 거리가 길수록 렌탈료가 상승합니다.</li>
+        </ul>
+
+        <h3>2. 2026년 전기차 보조금과 렌탈료의 관계</h3>
+        <p>2026년에도 정부의 전기차 보조금 정책이 계속될 예정입니다. 장기렌트 업체는 이 보조금을 미리 적용하여 차량 가격을 낮춘 후 렌탈료를 산정합니다. 따라서 보조금이 많이 책정되는 차량이나 특정 기간의 '할인' 프로모션을 이용하면 더욱 저렴한 가격으로 이용할 수 있습니다. 렌탈 업체마다 보조금 반영 방식이 다를 수 있으므로 '견적'을 받아 비교하는 것이 필수적입니다.</p>
+
+        <h3>3. 월 렌탈료 예상 금액 (예시)</h3>
+        <p>다음은 2026년 인기 전기차 모델의 월 렌탈료 평균 예상 금액입니다. 이는 계약 조건(48개월, 연 2만km, 무보증 기준)에 따라 달라질 수 있습니다.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>모델</th>
+              <th>예상 월 렌탈료</th>
+              <th>특징</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>현대 아이오닉 5 (롱레인지)</td>
+              <td>70만원대 ~ 80만원대</td>
+              <td>안정적인 주행 성능과 넓은 실내 공간</td>
+            </tr>
+            <tr>
+              <td>기아 EV6 (롱레인지)</td>
+              <td>70만원대 ~ 80만원대</td>
+              <td>스포티한 디자인과 고속 주행 퍼포먼스</td>
+            </tr>
+            <tr>
+              <td>KG 모빌리티 토레스 EVX</td>
+              <td>60만원대 ~ 70만원대</td>
+              <td>SUV의 실용성과 합리적인 가격</td>
+            </tr>
+            <tr>
+              <td>테슬라 모델 Y (RWD)</td>
+              <td>80만원대 ~ 90만원대</td>
+              <td>브랜드 파워와 첨단 기술, 높은 잔존가치</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>위 금액은 단순 참고용이며, 정확한 '견적'은 실시간으로 변동하므로 전문 업체에 문의해야 합니다. 특히 '신규 가입' 프로모션이나 '할인 이벤트'를 활용하면 더욱 '저렴한곳'을 찾을 수 있습니다.</p>
+      </div>
+    </section>
+
+    <section id="vehicle-selection">
+      <h2>전기차 장기렌트 모델 추천: 나에게 맞는 차량 선택 가이드</h2>
+      <div class="content-article">
+        <p>전기차 모델의 선택은 장기렌트 계약의 만족도를 결정하는 핵심 요소입니다. 2026년에는 다양한 전기차 라인업이 구축되어 있어 선택의 폭이 넓어졌지만, 동시에 어떤 모델이 나에게 맞는지 판단하기 어려울 수 있습니다. 주요 고려사항은 주행 거리, 충전 편의성, 차량 크기(패밀리카 vs. 출퇴근용), 그리고 가격대입니다.</p>
+
+        <h3>1. 주행 거리와 배터리 용량 고려</h3>
+        <p>전기차의 '장거리 주행 능력'은 배터리 용량에 따라 결정됩니다. 최근 출시되는 전기차들은 1회 충전 시 400km 이상의 주행 거리를 제공하지만, 실제 운행 환경(히터/에어컨 사용, 고속도로 주행)에서는 주행 거리가 감소할 수 있습니다. 출퇴근 용도로만 사용하는 경우 비교적 저렴한 엔트리급 모델(예: 코나 일렉트릭)도 충분하지만, 주말 장거리 여행을 즐긴다면 롱레인지 모델을 선택하는 것이 좋습니다.</p>
+
+        <h3>2. 충전 방식과 인프라</h3>
+        <p>전기차 충전 방식은 크게 AC 단상 충전(완속)과 DC 콤보 충전(급속)으로 나뉩니다. 장기렌트 시에는 충전 인프라가 잘 갖춰진 아파트나 오피스텔에 거주하는지 여부가 중요합니다. 개인 충전기를 설치할 수 없는 경우, 주변 공용 충전소의 위치를 미리 확인해야 합니다. 렌트 업체 중에는 충전 카드 혜택을 제공하거나 충전소 위치 안내 서비스를 제공하는 곳도 있으니 참고하면 좋습니다.</p>
+
+        <h3>3. 모델별 상세 추천: 패밀리카 vs. 출퇴근용</h3>
+        <p><strong><현대 아이오닉 5 / 기아 EV6></strong>: 국내 전기차 시장을 선도하는 모델입니다. 넓은 실내 공간과 최신 편의 사양으로 패밀리카 또는 다용도 차량으로 적합합니다. 렌탈 시장에서도 가장 인기가 많아, 경쟁이 치열한 만큼 '할인' 혜택도 자주 나옵니다.
+        <strong><테슬라 모델 Y></strong>: 수입차 모델 중 압도적인 인기를 자랑합니다. 압도적인 성능과 FSD(Full Self-Driving) 같은 첨단 기술이 강점입니다. 다만 AS 센터 부족과 높은 수리비는 단점으로 꼽힙니다.
+        <strong><KG 모빌리티 토레스 EVX></strong>: 2026년 전기차 SUV 시장에서 가성비를 내세우는 모델입니다. 저렴한 가격 대비 긴 주행거리와 SUV의 실용성을 갖춰 '가성비'를 중시하는 소비자에게 추천됩니다.</p>
+      </div>
+    </section>
+
+    <section id="process-and-tips">
+      <h2>전기차 장기렌트 진행 과정 및 핵심 팁</h2>
+      <div class="content-article">
+        <p>장기렌트는 복잡한 서류 절차가 필요하지만, 전문 업체(렌트 전문 업체)를 통해 진행하면 쉽고 빠르게 계약할 수 있습니다. 아래는 장기렌트 진행 과정과 '내돈내산' 후기를 참고하여 성공적인 계약을 위한 핵심 팁을 정리했습니다.</p>
+
+        <h3>1. 장기렌트 진행 절차</h3>
+        <ol>
+          <li><strong>견적 신청 및 상담:</strong> 원하는 차종, 계약 기간, 주행 거리를 결정하고 여러 업체의 '견적'을 받아 비교합니다.</li>
+          <li><strong>신용 심사:</strong> 렌트 업체에 신용 심사를 요청합니다. 신용 등급이 낮으면 보증금 납부 조건으로 심사가 진행될 수 있습니다.</li>
+          <li><strong>계약 및 차량 출고:</strong> 계약이 확정되면 차량 출고를 기다립니다. 전기차는 재고 확보 상황에 따라 출고 기간이 달라집니다. '신규 가입' 이벤트 차량이나 즉시 출고 재고를 이용하면 빠르게 차량을 받을 수 있습니다.</li>
+          <li><strong>차량 인도 및 이용:</strong> 차량을 인수하고 계약 기간 동안 자유롭게 이용합니다.</li>
+        </ol>
+
+        <h3>2. 현명한 선택을 위한 팁: 업체 비교 및 숨은 혜택 찾기</h3>
+        <p><strong>업체 순위 비교:</strong> 롯데렌터카, SK렌터카, 현대캐피탈 등 대형 렌트 업체뿐만 아니라 중소형 업체까지 포함하여 '가격 비교'를 해야 합니다. 대형 업체는 안정적이지만, 중소형 업체는 특정 모델에 대해 '할인'이나 '사은품' 혜택을 제공하는 경우가 많습니다.</p>
+        <p><strong>숨은 '혜택'과 '지원금' 확인:</strong> 렌트 업체별로 '사은품' (예: 충전기, 하이패스)이나 '현금 지원' (캐시백, 상품권)을 제공하는 경우가 있습니다. 월 렌탈료가 비슷한 경우 이러한 추가 혜택을 비교하여 '싼곳'을 결정하는 것이 좋습니다. '이벤트' 기간을 노리면 더 큰 혜택을 받을 수 있습니다.</p>
+        <p><strong>블로그 후기 및 내돈내산 후기:</strong> 실제로 장기렌트를 이용한 사람들의 '후기'를 확인하는 것이 중요합니다. 특히 '내돈내산' 후기는 업체 서비스의 질이나 계약 조건의 투명성을 파악하는 데 도움이 됩니다. 네이버 블로그나 구글 검색을 통해 후기를 찾아보세요.</p>
+        <p><strong>중고차 가격 전망:</strong> 전기차 장기렌트를 고려하는 분들은 만기 후 차량의 중고차 가격 전망도 확인해야 합니다. 중고차 시장에서 인기가 높은 모델은 '잔존가치'가 높게 책정되어 렌탈료가 낮아질 수 있습니다.</p>
+      </div>
+    </section>
+
+    <section id="external-links">
+      <h2>전기차 장기렌트 관련 외부 신뢰성 자료</h2>
+      <div class="content-article">
+        <p>전기차 보조금, 세금 정책, 그리고 최신 시장 동향에 대한 신뢰성 있는 정보는 정부 기관 및 전문 포털 사이트에서 확인할 수 있습니다. 다음은 참고할 만한 공신력 있는 외부 사이트 목록입니다.</p>
+        <ul>
+          <li><strong><a href="https://www.namu.wiki/w/%EC%A0%84%EA%B8%B0%EC%B0%A8" target="_blank">나무위키 - 전기차 항목</a>:</strong> 전기차의 역사, 기술, 모델 정보 등 방대한 정보를 제공합니다.</li>
+          <li><strong><a href="https://www.ev.or.kr/" target="_blank">한국EV협회 (KEVA)</a>:</strong> 국내 전기차 시장 동향, 정책 및 기술 정보를 전문적으로 다룹니다.</li>
+          <li><strong><a href="https://www.moef.go.kr/" target="_blank">대한민국 기획재정부</a>:</strong> 정부의 세제 정책, 경제 동향 등 전기차 관련 금융 정보를 확인할 수 있습니다.</li>
+          <li><strong><a href="https://www.carisyou.com/" target="_blank">카이즈유 데이터 연구소</a>:</strong> 국내 자동차 등록 대수 및 시장 분석 정보를 제공합니다.</li>
+          <li><strong><a href="https://www.moe.go.kr/" target="_blank">환경부 무공해차 통합누리집</a>:</strong> 전기차 보조금 정책 및 충전 인프라 정보를 확인할 수 있습니다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="keywords-and-categories">
+      <h2>주요 키워드 및 자동완성 검색어</h2>
+      <div class="keyword-section">
+        <h3>자동완성 및 연관 키워드 (네이버, 구글 검색 트렌드)</h3>
+        <div class="keyword-list">
+          <span class="keyword-item">장기렌트 전기차</span>
+          <span class="keyword-item">전기차 장기렌트 가격</span>
+          <span class="keyword-item">전기차 장기렌트 비용</span>
+          <span class="keyword-item">전기차 장기렌트 장점</span>
+          <span class="keyword-item">전기차 장기렌트 단점</span>
+          <span class="keyword-item">전기차 장기렌트 업체 순위</span>
+          <span class="keyword-item">전기차 장기렌트 견적</span>
+          <span class="keyword-item">전기차 장기렌트 비교</span>
+          <span class="keyword-item">전기차 장기렌트 싼곳</span>
+          <span class="keyword-item">전기차 장기렌트 저렴한곳</span>
+          <span class="keyword-item">전기차 장기렌트 후기</span>
+          <span class="keyword-item">전기차 장기렌트 추천</span>
+          <span class="keyword-item">전기차 장기렌트 보조금</span>
+          <span class="keyword-item">전기차 장기렌트 할인</span>
+          <span class="keyword-item">전기차 장기렌트 신규 가입 혜택</span>
+          <span class="keyword-item">전기차 장기렌트 사은품</span>
+          <span class="keyword-item">전기차 장기렌트 내돈내산</span>
+          <span class="keyword-item">전기차 장기렌트 차이점</span>
+          <span class="keyword-item">2026 전기차 예상 가격</span>
+          <span class="keyword-item">전기차 장기렌트 전문</span>
+          <span class="keyword-item">법인 전기차 장기렌트</span>
+          <span class="keyword-item">개인사업자 전기차 장기렌트</span>
+          <span class="keyword-item">현금 지원</span>
+          <span class="keyword-item">상품권 이벤트</span>
+          <span class="keyword-item">네이버 검색 결과</span>
+          <span class="keyword-item">구글 상위 노출</span>
+          <span class="keyword-item">유튜브 리뷰</span>
+          <span class="keyword-item">인스타그램 후기</span>
+          <span class="keyword-item">페이스북 이벤트</span>
+          <span class="keyword-item">테슬라 장기렌트</span>
+          <span class="keyword-item">아이오닉5 장기렌트</span>
+          <span class="keyword-item">EV6 장기렌트</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="quote-request">
+      <h2>실시간 전기차 장기렌트 무료 견적 신청</h2>
+      <div class="quote-form-section">
+        <h3>나에게 맞는 전기차 장기렌트 견적을 지금 바로 받아보세요.</h3>
+        <p>몇 가지 간단한 정보만 입력하시면 2026년 최신 모델의 실시간 견적을 비교해 드립니다. 가장 저렴한 가격과 최대 할인 혜택을 찾아드립니다.</p>
+        <form action="#" method="post">
+          <label for="car_model">희망 차량 모델 (예: 아이오닉 5, EV6, 테슬라 Y):</label>
+          <input type="text" id="car_model" name="car_model" placeholder="차종을 입력해 주세요" required>
+
+          <label for="contract_period">계약 기간 (장기, 36/48/60개월):</label>
+          <select id="contract_period" name="contract_period" required>
+            <option value="">-- 기간 선택 --</option>
+            <option value="36">36개월</option>
+            <option value="48">48개월</option>
+            <option value="60">60개월</option>
+          </select>
+
+          <label for="mileage">연간 주행 거리 (km):</label>
+          <select id="mileage" name="mileage" required>
+            <option value="">-- 주행 거리 선택 --</option>
+            <option value="10000">10,000 km</option>
+            <option value="15000">15,000 km</option>
+            <option value="20000">20,000 km</option>
+            <option value="30000">30,000 km 이상</option>
+          </select>
+
+          <label for="insurance_type">보험 조건 (만 21세, 만 26세 이상):</label>
+          <select id="insurance_type" name="insurance_type" required>
+            <option value="">-- 조건 선택 --</option>
+            <option value="age21">만 21세 이상</option>
+            <option value="age26">만 26세 이상</option>
+          </select>
+
+          <label for="contact_name">성함:</label>
+          <input type="text" id="contact_name" name="contact_name" placeholder="실명을 입력해 주세요" required>
+
+          <label for="contact_phone">연락처:</label>
+          <input type="number" id="contact_phone" name="contact_phone" placeholder="숫자만 입력해 주세요" required>
+
+          <button type="submit">맞춤 견적 요청하기</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  
